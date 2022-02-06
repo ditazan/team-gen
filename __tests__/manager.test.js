@@ -1,7 +1,7 @@
 const Manager = require("../lib/Manager.js");
 
 test("creates a Team Manager", () => {
-  const manager = new Manager();
+  const manager = new Manager(`d`,`d`,`d`,`d`);
 
   expect(manager.name).toEqual(expect.any(String));
   expect(manager.name.length).toBeGreaterThan(0);
