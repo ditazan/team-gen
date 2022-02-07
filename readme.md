@@ -17,13 +17,13 @@ The user is prompted about information regarding their project members in the te
 -- id <br>
 -- office # <br>
 
-- Intern 
+- Intern <br>
 -- name <br>
 -- email <br>
 -- id <br>
 -- school <br>
 
-- Engineer
+- Engineer <br>
 -- name <br>
 -- email <br>
 -- id <br>
