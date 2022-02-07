@@ -6,7 +6,7 @@ const generateMembers = teamArr => {
       <h2 class="text-dark bg-primary p-2 display-inline-block">Team Members</h2>
       <div class="flex-row justify-space-between">
       ${teamArr
-        .filter(({ role }) => role === `Project Manager`)
+        .filter(({ employeeRole }) => employeeRole === `Project Manager`)
         .map(({ name, email, id, office, role}) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
@@ -22,7 +22,7 @@ const generateMembers = teamArr => {
         })
         .join('')}
       ${teamArr
-        .filter(({ role }) => role === `Intern`)
+        .filter(({ employeeRole }) =>employeeRole === `Intern`)
         .map(({ name, email, id, school, role}) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
@@ -39,7 +39,7 @@ const generateMembers = teamArr => {
         .join('')}
 
       ${teamArr
-        .filter(({ role }) => role ===`Engineer`)
+        .filter(({ employeeRole }) => employeeRole ===`Engineer`)
         .map(({ name, email, id, github }) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">

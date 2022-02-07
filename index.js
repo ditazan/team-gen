@@ -78,9 +78,9 @@ const promptEmployee = teamData => {
   =====================
   `);
 
-  // if (!teamData.members) {
-  //   teamData.members = [];
-  // }
+  //  if (!teamData.employee) {
+  //    teamData.employee = [];
+  //  }
 
   return inquirer
     .prompt([
@@ -135,26 +135,26 @@ const promptEmployee = teamData => {
         default: true,
       },
     ])
-    .then((answers) => {
-      if (answers.employeeRole === `Engineer`) {
+    .then((teamData) => {
+      if (teamData.employeeRole === `Engineer`) {
         this.engineer = new Engineer(
-          answers.name,
-          answers.email,
-          answers.id,
-          answers.github
+          teamData.name,
+          teamData.email,
+          teamData.id,
+          teamData.github
         );
-      } else if (answers.employeeRole === `Intern`) {
+      } else if (teamData.employeeRole === `Intern`) {
         this.intern = new Intern(
-          answers.name,
-          answers.email,
-          answers.id,
-          answers.school
+          teamData.name,
+          teamData.email,
+          teamData.id,
+          teamData.school
         );
       }
     
-      // teamData.members.push(employeeData);
+      //  teamData.employee.push(employeeData);
 
-      if (answers.confirmNewEmployee) {
+      if (teamData.confirmNewEmployee) {
         return promptEmployee(teamData);
       } else {
         return teamData;
