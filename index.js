@@ -71,15 +71,17 @@ const promptPM = () => {
     });
 };
 
-const promptEmployee = (teamData) => {
+const promptEmployee = teamData => {
   console.log(`
   =====================
    Adding new Employee
   =====================
   `);
-  // if (!teamData.employees) {
-  //   teamData.employees = [];
+
+  // if (!teamData.members) {
+  //   teamData.members = [];
   // }
+
   return inquirer
     .prompt([
       {
@@ -135,23 +137,23 @@ const promptEmployee = (teamData) => {
     ])
     .then((answers) => {
       if (answers.employeeRole === `Engineer`) {
-        this.employee = new Engineer(
+        this.engineer = new Engineer(
           answers.name,
           answers.email,
           answers.id,
           answers.github
         );
       } else if (answers.employeeRole === `Intern`) {
-        this.employee = new Intern(
+        this.intern = new Intern(
           answers.name,
           answers.email,
           answers.id,
           answers.school
         );
       }
-      // })
-      // .then(( answers ) => {
-      // teamData.employees.push(employeeData);
+    
+      // teamData.members.push(employeeData);
+
       if (answers.confirmNewEmployee) {
         return promptEmployee(teamData);
       } else {

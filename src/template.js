@@ -1,14 +1,33 @@
+const Employee = require("../lib/Employee");
+
 const generateMembers = teamArr => {
     return `
     <section class="my-3" id="portfolio">
       <h2 class="text-dark bg-primary p-2 display-inline-block">Team Members</h2>
       <div class="flex-row justify-space-between">
       ${teamArr
-        .filter(({ role }) => `Intern`)
-        .map(({ name, email, id, school}) => {
+        .filter(({ role }) => role === `Project Manager`)
+        .map(({ name, email, id, office, role}) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
             <h3 class="portfolio-item-title text-light">${name}</h3>
+            <h5>${role}</h5>
+            <h5 class="email">
+            <a href="mailto:${email}">Email</a>
+            </h5>
+            <h5>${id}</h5>
+            <h5>School : ${office}</h5>
+          </div>
+        `;
+        })
+        .join('')}
+      ${teamArr
+        .filter(({ role }) => role === `Intern`)
+        .map(({ name, email, id, school, role}) => {
+          return `
+          <div class="col-12 mb-2 bg-dark text-light p-3">
+            <h3 class="portfolio-item-title text-light">${name}</h3>
+            <h5>${role}</h5>
             <h5 class="email">
             <a href="mailto:${email}">Email</a>
             </h5>
@@ -20,11 +39,12 @@ const generateMembers = teamArr => {
         .join('')}
 
       ${teamArr
-        .filter(({ role }) => !`Engineer`)
+        .filter(({ role }) => role ===`Engineer`)
         .map(({ name, email, id, github }) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
             <h3 class="portfolio-item-title text-light">${name}</h3>
+            <h5>${role}</h5>
             <h5 class="email">
             <a href="mailto:${email}">Email</a>
             </h5>
